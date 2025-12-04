@@ -1,0 +1,63 @@
+
+
+- How many missing values did you find?
+- What percentage of data was missing?
+- Which method did you use to fill missing values?
+- Why did you choose that method?
+- What are the pros/cons of your approach?
+- Include examples showing missing data patterns
+
+There are 323 missing values found, which makes up about 96.42 percent of the data. To fill in the missing values, forward fill, backward fill, interpolate, linear interpolation, time-based interpolation, and rolling mean. were the methods used. The missing values and percentages of the data those missing values make up after using the methods listed above are as follows:
+Forward fill had a fill rate of 100 percent, with 0 missing values remaining after use. 
+Backward fill had a fill rate of 100 percent, with 0 missing values remaining after use.
+Interpolation fill had a fill rate of 100 percent, with 0 missing values remaining after use.
+Linear interpolation fill had a fill rate of 100 percent, with 0 missing values remaining after use.
+Time-based fill had a fill rate of 100 percent, with 0 missing values remaining after use.
+Rolling mean had 301 missing values, which is 89.85 percent of the data
+
+When seeing the missing values by month and day, the following information was found:
+When comparing the months together, January had no missing values. February had the second least with 27 missing values. From then on, the other months either had 29 or 30 missing values. When the days were compared, 1 had the least with 45, while the other days either had 46 or 47. 
+
+Any but the rolling mean method would work, as that is the only method that contained missing values after use.. Ideally forward fill is used, because it's simple and quick to do. It also preserves
+the last known value. One con is that it introduces step changes.
+
+One example of filling in the missing values is outlined below:
+
+Before filling in missing values:
+2025-02-05    NaN
+2025-02-06    NaN
+2025-02-07    98.6
+
+After filling in missing values:
+2025-02-05    98.6
+2025-02-06    98.6
+2025-02-07    98.6
+
+
+Missing patterns:
+Missing by month:
+date
+1      0
+2     27
+3     30
+4     29
+5     30
+6     29
+7     30
+8     30
+9     29
+10    30
+11    29
+12    30
+Name: temperature, dtype: int64
+
+Missing by day of week:
+date
+0    46
+1    45
+2    47
+3    46
+4    46
+5    47
+6    46
+Name: temperature, dtype: int64

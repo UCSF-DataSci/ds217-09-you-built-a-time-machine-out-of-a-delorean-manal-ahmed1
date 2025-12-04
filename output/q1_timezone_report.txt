@@ -1,0 +1,26 @@
+
+TODO: Document your timezone operations:
+- What timezone was your original data in? 
+
+The original data did not have any timezone information included in the date column, just the months, years, etc.
+
+- How did you localize the data?
+
+To localize the data, all dates and times  were set to UTC. This is vital due to the fact that it does not observe daylight savings. This provides a baseline, from which other timezones can be added and modified.
+
+- What timezone did you convert to?
+
+The data was converted to the US/Eastern timezone after localization using tz_convert.
+
+- What issues did you encounter with DST? (Note: Using UTC avoids DST ambiguity)
+
+Daylight savings time causes errors in data collection, handling, and analysis. This is because in March, an hour is skipped when DST is observed, which causes missing hour errors in the data. However, in the Fall, when an hour is added back, it causes overlapping errors in the data. This is why storing data in UTC helps, as the errors with DST are handled without DST.
+
+- Include at least one example showing a datetime before and after conversion
+
+One example showing a datetime before and after conversion is the date 2025-07-15 10:00:00 UTC` will convert to the date `2025-07-15 06:00:00 US/Eastern, showing that US/Eastern time is 5 hours behind UTC, while maintaining the date.
+
+- Explain why UTC is recommended as the base timezone for storing temporal data
+
+UTC is recommended as the base timezone for storing temporal data due to its ability to avoid any DST errors, as UTC does not observe DST.
+
